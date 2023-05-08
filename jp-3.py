@@ -1,7 +1,9 @@
 from flask import Flask, request
 import sqlite3
+from decouple import config
 
 app = Flask(__name__)
+app.config["SECRET_KEY"] = config("SECRET_KEY")
 
 
 @app.route("/users")
