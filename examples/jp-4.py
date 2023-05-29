@@ -11,7 +11,7 @@ def get_users():
     name = request.args.get("name", None)
     conn = sqlite3.connect("users.db")
     c = conn.cursor()
-    if not name:
+    if name:
         c.execute("SELECT * FROM users WHERE name = ?", (name,))
     else:
         c.execute("SELECT * FROM users")
